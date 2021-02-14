@@ -1,10 +1,8 @@
 import React from 'react';
-
 import {createStackNavigator} from '@react-navigation/stack';
 
 import HomeScreen from '../screens/home';
 import ProfileScreen from '../screens/profile';
-
 import {
   WelcomeScreen,
   LoginScreen,
@@ -13,30 +11,31 @@ import {
 } from '../screens/auth';
 
 const Stack = createStackNavigator();
+const {Navigator: StackNavigator, Screen} = Stack;
 
 const Navigator = () => {
   const isAuth = false;
 
   if (!isAuth) {
     return (
-      <Stack.Navigator initialRouteName="Welcome">
-        <Stack.Screen
+      <StackNavigator initialRouteName="Welcome">
+        <Screen
           name="Welcome"
           options={{header: () => null}}
           component={WelcomeScreen}
         />
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Register" component={RegisterScreen} />
-        <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
-      </Stack.Navigator>
+        <Screen name="Login" component={LoginScreen} />
+        <Screen name="Register" component={RegisterScreen} />
+        <Screen name="ForgotPassword" component={ForgotPasswordScreen} />
+      </StackNavigator>
     );
   }
 
   return (
-    <Stack.Navigator initialRouteName="Auth">
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Profile" component={ProfileScreen} />
-    </Stack.Navigator>
+    <StackNavigator initialRouteName="Auth">
+      <Screen name="Home" component={HomeScreen} />
+      <Screen name="Profile" component={ProfileScreen} />
+    </StackNavigator>
   );
 };
 
