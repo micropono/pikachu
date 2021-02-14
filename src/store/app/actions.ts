@@ -1,4 +1,4 @@
-import {WHISPER} from './types';
+import { WHISPER } from './types';
 
 export const createWhisper = (dispatch: any) => (/* payload */) =>
   new Promise((resolve) => {

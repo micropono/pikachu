@@ -1,5 +1,5 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from '../screens/home';
 import ProfileScreen from '../screens/profile';
@@ -11,7 +11,7 @@ import {
 } from '../screens/auth';
 
 const Stack = createStackNavigator();
-const {Navigator: StackNavigator, Screen} = Stack;
+const { Navigator: StackNavigator, Screen } = Stack;
 
 const Navigator = () => {
   const isAuth = false;
@@ -21,7 +21,7 @@ const Navigator = () => {
       <StackNavigator initialRouteName="Welcome">
         <Screen
           name="Welcome"
-          options={{header: () => null}}
+          options={{ header: () => null }}
           component={WelcomeScreen}
         />
         <Screen name="Login" component={LoginScreen} />

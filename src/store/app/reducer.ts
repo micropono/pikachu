@@ -1,4 +1,4 @@
-import {AppState, AppActionTypes, WHISPER, FETCH_WHISPER} from './types';
+import { AppState, AppActionTypes, WHISPER, FETCH_WHISPER } from './types';
 
 const initialState: AppState = {
   whispers: 'not implemented',
