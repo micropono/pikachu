@@ -1,6 +1,25 @@
 import React from 'react';
-import AButton, {ButtonProps} from 'antd-mobile-rn/lib/button/index.native';
+import AButton, {
+  ButtonProps as AButtonProps,
+} from 'antd-mobile-rn/lib/button/index.native';
+import {StyleSheet} from 'react-native';
 
-const Button = (props: ButtonProps) => <AButton {...props} />;
+export interface ButtonProps extends AButtonProps {
+  children: React.ReactNode;
+}
+
+const Button = ({children, ...rest}: ButtonProps) => (
+  <AButton style={styles.primary} {...rest}>
+    {children}
+  </AButton>
+);
+
+const styles = StyleSheet.create({
+  primary: {
+    backgroundColor: 'black',
+    color: 'white',
+    borderWidth: 0,
+  },
+});
 
 export default Button;
