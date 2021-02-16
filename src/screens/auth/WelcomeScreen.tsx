@@ -1,20 +1,43 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, ImageBackground } from 'react-native';
 
 import Logo from '../../components/Logo';
 import Button from '../../components/Button';
 
-export default function AuthScreen() {
+import { WelcomePageProps } from '../../navigator/types';
+
+export default function AuthScreen({ navigation }: WelcomePageProps) {
   return (
     <View style={styles.container}>
-      <View style={styles.logoWrapper}>
-        <Logo size="large" />
-      </View>
+      <ImageBackground
+        style={styles.bg}
+        source={require('../../../images/welcome-bg.jpg')}>
+        <View style={styles.content}>
+          <View>
+            <View style={styles.logoWrapper}>
+              <Logo size="large" />
+            </View>
+          </View>
 
-      <Button type="primary">Sign In</Button>
-      <View>
-        <Text>Forgot Password?</Text>
-      </View>
+          <View>
+            <Button
+              type="primary"
+              onClick={() => navigation.navigate('Register')}>
+              Sign Up
+            </Button>
+            <View>
+              <Text style={styles.bottomText}>
+                Already have an account?{' '}
+                <Text
+                  style={styles.link}
+                  onPress={() => navigation.navigate('Login')}>
+                  Login
+                </Text>
+              </Text>
+            </View>
+          </View>
+        </View>
+      </ImageBackground>
     </View>
   );
 }
@@ -22,15 +45,41 @@ export default function AuthScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
-    backgroundColor: 'white',
     flexDirection: 'column',
+  },
+  bg: {
+    flex: 1,
+    resizeMode: 'cover',
     justifyContent: 'center',
-    alignItems: 'stretch',
   },
   logoWrapper: {
     display: 'flex',
     alignItems: 'center',
-    marginBottom: 20,
+  },
+  content: {
+    flex: 1,
+    paddingVertical: 50,
+    paddingHorizontal: 30,
+    marginTop: 100,
+    justifyContent: 'space-between',
+  },
+  textWrapper: {
+    alignItems: 'center',
+  },
+  text: {
+    fontWeight: 'bold',
+    color: 'white',
+    fontSize: 30,
+    marginVertical: 10,
+  },
+  bottomText: {
+    marginTop: 30,
+    color: 'white',
+    fontWeight: '500',
+    fontSize: 19,
+  },
+  link: {
+    textDecorationLine: 'underline',
+    color: 'silver',
   },
 });

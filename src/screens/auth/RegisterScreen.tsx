@@ -1,39 +1,18 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
 
-import Logo from '../../components/Logo';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
+import Container from '../../components/Container';
 
-export default function AuthScreen() {
+import { RegisterPageProps } from '../../navigator/types';
+
+export default function AuthScreen({}: RegisterPageProps) {
   return (
-    <View style={styles.container}>
-      <View style={styles.logoWrapper}>
-        <Logo size="large" />
-      </View>
+    <Container>
       <Input name="email" placeholder="Email" />
       <Input name="userName" placeholder="User Name" />
       <Input name="password" placeholder="Password" />
-      <Button type="primary">Sign In</Button>
-      <View>
-        <Text>Forgot Password?</Text>
-      </View>
-    </View>
+      <Button type="primary">Sign Up</Button>
+    </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 10,
-    backgroundColor: 'white',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'stretch',
-  },
-  logoWrapper: {
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-});

@@ -26,12 +26,8 @@ const styles = StyleSheet.create({
     color: 'gray',
   },
   input: {
-    // borderWidth: 0.5,
-    // borderRadius: 4,
     marginLeft: 0,
     paddingHorizontal: 8,
-    // borderColor: 'gray',
-    borderBottomColor: 'gray',
   },
 });
 

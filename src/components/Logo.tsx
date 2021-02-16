@@ -17,12 +17,12 @@ const styles = StyleSheet.create({
     height: 40,
   },
   middle: {
-    width: 100,
-    height: 100,
+    width: 120,
+    height: 120,
   },
   large: {
-    width: 150,
-    height: 150,
+    width: 240,
+    height: 240,
   },
 });
 
